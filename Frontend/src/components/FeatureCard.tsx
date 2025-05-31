@@ -1,6 +1,14 @@
 import { motion } from 'framer-motion';
+import { FC, ReactNode } from 'react';
 
-export default function FeatureCard({ icon, title, description, delay = 0 }) {
+interface FeatureCardProps {
+  icon: ReactNode;
+  title: string;
+  description: string;
+  delay?: number;
+}
+
+const FeatureCard: FC<FeatureCardProps> = ({ icon, title, description, delay = 0 }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -18,3 +26,4 @@ export default function FeatureCard({ icon, title, description, delay = 0 }) {
     </motion.div>
   );
 }
+export default FeatureCard;

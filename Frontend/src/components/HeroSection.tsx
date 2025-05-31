@@ -1,6 +1,18 @@
 import { motion } from 'framer-motion';
+import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export default function HeroSection() {
+const HeroSection: FC = () => {
+  const navigate = useNavigate();
+
+  const handleVoiceInteractionClick = () => {
+    navigate('/screenshare');
+  };
+
+  const handleStartLearningClick = () => {
+    navigate('/login');
+  };
+
   return (
     <div className="relative bg-gradient-to-b from-blue-50 to-white pt-32 pb-20 px-6">
       <div className="container mx-auto">
@@ -21,10 +33,10 @@ export default function HeroSection() {
             Experience interactive learning with real-time voice communication and mood-adaptive AI tutoring.
             Get personalized help whenever you need it.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <motion.button
+          <div className="flex flex-col sm:flex-row justify-center gap-4">            <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={handleStartLearningClick}
               className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors"
             >
               Start Learning Now
@@ -32,9 +44,10 @@ export default function HeroSection() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={handleVoiceInteractionClick}
               className="bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-colors"
             >
-              Watch Demo
+              Try Voice Interaction
             </motion.button>
           </div>
 
@@ -44,7 +57,8 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-white p-6 rounded-xl shadow-lg"
+              className="bg-white p-6 rounded-xl shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+              onClick={handleVoiceInteractionClick}
             >
               <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto">
                 <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -90,3 +104,4 @@ export default function HeroSection() {
     </div>
   );
 }
+export default HeroSection;

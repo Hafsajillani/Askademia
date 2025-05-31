@@ -1,11 +1,18 @@
 import { motion } from 'framer-motion';
+import { FC, ReactNode } from 'react';
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import FeatureCard from '../components/FeatureCard';
 import Footer from '../components/Footer';
 
-export default function LandingPage() {
-  const features = [
+interface Feature {
+  icon: ReactNode;
+  title: string;
+  description: string;
+}
+
+export const LandingPage: FC = () => {
+  const features: Feature[] = [
     {
       icon: (
         <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

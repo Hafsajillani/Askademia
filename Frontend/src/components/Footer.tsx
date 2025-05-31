@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
+import { FC } from 'react';
 
-export default function Footer() {
+const Footer: FC = () => {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-6 py-12">
@@ -84,3 +85,4 @@ export default function Footer() {
     </footer>
   );
 }
+export default Footer;
